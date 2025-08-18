@@ -22,7 +22,7 @@ for nome in imagens:
     plt.show()
     
 # Plot de imagem específica
-# img = io.imread(os.path.join(img_dir, "chave_o_d_14.jpg"))
+# img = io.imread(os.path.join(img_dir, "flor_o_n_14.jpg"))
 # plt.imshow(img)
 # plt.axis("off")
 # plt.show()

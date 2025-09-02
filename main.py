@@ -6,6 +6,7 @@ import os
 #Importando a função de conversão
 from convert_to_cinza import converter_para_cinza
 from convert_to_negative import converter_para_negativo
+from histogram import histogram_plot
 # Importando as imagens
 img_dir = "assets/rgb"
 
@@ -51,7 +52,10 @@ if __name__ == "__main__":
     dir_negativo = "assets/negative"
     
     # converter_para_cinza(img_dir, dir_cinza)
-    converter_para_negativo(dir_cinza, dir_negativo)
+    # converter_para_negativo(dir_cinza, dir_negativo)
+    
+    # gerar histogramas
+    histogram_plot(dir_cinza, "assets/histograms_gray")
     
     # print("\nExibindo uma imagem original como exemplo:")
     # plot_imagens("carro_o_n_14.jpg")

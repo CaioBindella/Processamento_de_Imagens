@@ -3,8 +3,11 @@ from skimage import data
 import matplotlib.pyplot as plt
 import os
 
+#Importando a função de conversão
+from convert_to_cinza import converter_para_cinza
+from convert_to_negative import converter_para_negativo
 # Importando as imagens
-img_dir = "assets"
+img_dir = "assets/rgb"
 
 # Loop para abrir e mostrar as imagens
 def plot_all_images():
@@ -42,8 +45,13 @@ def plot_imagens(name):
     fig.tight_layout()
     plt.show()
 
-# Chamndo a função para plotar apenas uma imagem
-# plot_imagens("carro_o_n_14.jpg")
+if __name__ == "__main__":
 
-# Chamndo a função para plotar todas as imagens
-plot_all_images()
+    dir_cinza = "assets/gray"
+    dir_negativo = "assets/negative"
+    
+    # converter_para_cinza(img_dir, dir_cinza)
+    converter_para_negativo(dir_cinza, dir_negativo)
+    
+    # print("\nExibindo uma imagem original como exemplo:")
+    # plot_imagens("carro_o_n_14.jpg")

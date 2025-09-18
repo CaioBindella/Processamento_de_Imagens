@@ -7,55 +7,45 @@ import os
 from convert_to_cinza import converter_para_cinza
 from convert_to_negative import converter_para_negativo
 from histogram import histogram_plot
+from equalize_histogram import equalizar_e_analisar_imagem
+from plot_images import plot_imagens, plot_all_images
+
 # Importando as imagens
 img_dir = "assets/rgb"
+dir_cinza = "assets/gray"
+dir_negativo = "assets/negative"
+dir_histogramas = "assets/histograms_gray"
+dir_resultados_equalizados = "assets/equalized_histogram"
 
-# Loop para abrir e mostrar as imagens
-def plot_all_images():
-    imagens = os.listdir(img_dir)
-    for nome in imagens:
-        fig, ax = plt.subplots( figsize=(8, 4))
-        
-        caminho = os.path.join(img_dir, nome)
-        # Lê a imagem com skimage
-        img = io.imread(caminho)
-        
-        ax.imshow(img)
-        ax.set_title(nome)
-        ax.axis("off") # Remove os eixos (números) da imagem
-        
-        # Plotando o histograma
-        fig.tight_layout()
-        plt.show()
-
-# Plot de uma imagem
-def plot_imagens(name):
-    # Criando uma figura com 1 linha e 2 colunas
-    fig, ax = plt.subplots(figsize=(8, 4))
-    
-    # Obtendo o caminho da imagem
-    caminho = os.path.join(img_dir, name)
-    img = io.imread(caminho)
-    
-    # Plotando a imagem
-    ax.imshow(img)
-    ax.set_title(name)
-    ax.axis("off") # Remove os eixos (números) da imagem
-    
-    # Plotando o histograma
-    fig.tight_layout()
-    plt.show()
 
 if __name__ == "__main__":
-
-    dir_cinza = "assets/gray"
-    dir_negativo = "assets/negative"
+    
+    plot_all_images("assets/equalized_histogram")
     
     # converter_para_cinza(img_dir, dir_cinza)
     # converter_para_negativo(dir_cinza, dir_negativo)
-    
     # gerar histogramas
-    histogram_plot(dir_cinza, "assets/histograms_gray")
-    
+    # histogram_plot(dir_cinza, "assets/histograms_gray")
+      
     # print("\nExibindo uma imagem original como exemplo:")
     # plot_imagens("carro_o_n_14.jpg")
+    
+    
+    # print("\nIniciando análise com equalização de histograma para a classe 'carro'...")
+    
+    # imagens_carro = [
+    #     "carro_o_d_14.jpg",
+    #     "carro_o_n_14.jpg",
+    #     "carro_i_d_14.jpg",
+    #     "carro_i_n_14.jpg"
+    # ]
+
+    # for nome_imagem in imagens_carro:
+    #     caminho_completo = os.path.join(dir_cinza, nome_imagem)
+    #     if os.path.exists(caminho_completo):
+    #         # Chama a nova função do arquivo separado
+    #         equalizar_e_analisar_imagem(caminho_completo, dir_resultados_equalizados)
+    #     else:
+    #         print(f"Arquivo não encontrado: {caminho_completo}")
+            
+    # print("\nAnálise concluída.")
